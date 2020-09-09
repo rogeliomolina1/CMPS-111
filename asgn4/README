@@ -1,0 +1,36 @@
+CMPS 111 Assignment 4
+Rogelio Molina-Marquez (rgmolina@ucsc.edu),
+Casey Chien (cdchien@ucsc.edu),
+Timothy Su (tisu@ucsc.edu)
+
+Files contained:
+hello.c
+FS_FILE
+script
+DesignDocument.docx
+README
+
+Load FUSE into the kernel:
+sudo kldload fuse
+
+Change line 23 which says:
+static const char *fs_path = "/home/rgmolina/FS_FILE";
+change it to the path where you have placed FS_FILE
+
+Compile with the following command:
+cc hello.c -o hello `pkgconf fuse --cflags --libs`
+
+To mount the filesystem, make a new folder with
+mkdir newFolder
+
+then run the compiled program like this(in root):
+./hello newFolder
+
+
+To run the script on the filesystem, make sure script is chmodded to runnable, and then use the command
+time ./script
+in the same directory as the newFolder that the filesystem is mounted on.
+This will output several time values, the first time indicates how long the script ran for.
+
+To run the script outside the filesystem, make another new folder, make the folder newFolder in that folder,
+and run the command

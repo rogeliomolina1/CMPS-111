@@ -1,0 +1,31 @@
+CMPS 111 Assignment 2
+Rogelio Molina-Marquez (rgmolina@ucsc.edu),
+Casey Chien (cdchien@ucsc.edu),
+Timothy Su (tisu@ucsc.edu)
+
+Files contained:
+kern_switch.c
+runq.h
+sched_ule.c
+DesignDocument.docx
+README
+
+Before beginning you may want to copy the GENERIC Kernel configuration:
+# cd /usr/src/sys/amd64/conf
+# cp GENERIC MYKERNEL
+
+To recompile the Kernel with our lottery queue:
+-Make sure you are in root
+-Copy each of our files listed above into their correstponding directories
+replacing what is current scheduler implementation:
+  -While in the directory containing our files run these commands:
+
+    cp kern_switch.c /usr/src/sys/kern/kern_switch.c
+    cp sched_ule.c /usr/src/sys/kern/sched_ule.c
+    cp runq.h /usr/src/sys/sys/runq.h
+
+-After copying the files to your kernel run the following commands:
+  cd /usr/src
+  make buildkernel KERNCONF=MYKERNEL
+  make installkernel KERNCONF=MYKERNEL
+  reboot the kernel

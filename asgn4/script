@@ -1,0 +1,15 @@
+#!/bin/sh
+start=$SECONDS
+touch newFolder/banana
+echo "blah" >> newFolder/pineapple
+cat newFolder/pineapple
+rm newFolder/pineapple
+a=0 
+while [ "$a" -lt 100 ]
+do
+	touch "newFolder/$a " 
+	a=$((a+1))	
+done
+echo "duration is "
+duration=$(( SECONDS - start))
+echo $duration

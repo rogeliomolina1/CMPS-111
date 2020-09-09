@@ -1,0 +1,27 @@
+CMPS 111 Assignment 1
+Rogelio Molina-Marquez
+rgmolina@ucsc.edu
+
+Files contained:
+argshell.c
+DesignDocument.docx
+Makefile
+README
+shell.l
+
+To compile run the command make. This will create two files:
+argshell
+lex.yy.c
+
+argshell is the executable file.
+
+Also running make clean will remove argshell, lex.yy.c, and
+argshell.core.
+
+After the program has compiled, to run it use command:
+./argshell.
+
+Bugs:
+Pipes don't work
+Redirection of standard error does not work
+Chaining with ";" only works with 2 commands for some reason.

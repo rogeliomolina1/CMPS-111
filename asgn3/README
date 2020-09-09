@@ -1,0 +1,39 @@
+CMPS 111 Assignment 3
+Rogelio Molina-Marquez (rgmolina@ucsc.edu),
+Casey Chien (cdchien@ucsc.edu),
+Timothy Su (tisu@ucsc.edu)
+
+Files contained:
+callocLoop.c
+vm_fault.c
+vm_page.c
+vm_page.h
+vm_pageout.c
+Makefile
+DesignDocument.docx
+README
+
+Before beginning you may want to copy the GENERIC Kernel configuration:
+# cd /usr/src/sys/amd64/conf
+# cp GENERIC MYKERNEL
+
+To recompile the Kernel with our page replacement algorithm:
+-Make sure you are in root
+-Copy each of our files listed above into their corresponding directories
+replacing what is current scheduler implementation:
+  -While in the directory containing our files run these commands:
+
+    cp vm_fault.c /usr/src/sys/vm/vm_fault.c
+    cp vm_page.c /usr/src/sys/vm/vm_page.c
+    cp vm_page.h /usr/src/sys/vm/vm_page.h
+    cp vm_pageout.c /usr/src/sys/vm/vm_pageout.c
+    
+-After copying the files to your kernel run the following commands:
+  cd /usr/src
+  make buildkernel KERNCONF=MYKERNEL
+  make installkernel KERNCONF=MYKERNEL
+  reboot the kernel
+  
+To run the benchmark, run the following the commands:
+    make loop
+    ./loop
